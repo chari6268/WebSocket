@@ -4,7 +4,10 @@ import { GetFunc as LoginController } from "./StartUp/Login.controller.js";
 import { StartFunc as StartFuncKWSServer } from "./Projects/KWSServer/EntryFile.js";
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
-import packageJSON from './package.json' assert {type: 'json'};
+// Replace the JSON import with createRequire
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const packageJSON = require('./package.json');
 
 import express from 'express';
 import http from 'http';
